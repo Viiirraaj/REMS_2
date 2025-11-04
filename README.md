@@ -13,6 +13,7 @@ Built using **.NET Framework** and **SQL Server**, REMS provides an efficient an
 - 💾 **Database Integration:** Seamless data storage and retrieval using **SQL Server**.  
 - 📊 **Dashboard Overview:** Admin panel for monitoring property data and transactions.  
 - 🔐 **Authentication & Authorization:** Role-based access control for secure operations.  
+- 📱 **Responsive UI:** Clean design adaptable to different screen sizes.
 
 ---
 
@@ -32,59 +33,108 @@ Built using **.NET Framework** and **SQL Server**, REMS provides an efficient an
 | **Database** | Microsoft SQL Server |
 | **IDE** | Visual Studio |
 | **Version Control** | Git & GitHub |
+| **Optional Deployment** | IIS Server |
 
 ---
 
 ## ⚙️ Installation & Setup
 
-### Prerequisites
-- Visual Studio (2019 or later)
-- Microsoft SQL Server
-- .NET Framework 4.7+ installed
+Follow these steps to install and run the project successfully on your local system 👇
 
-### Steps
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Viraj5132/REMS.git
+### Step 1: Install Prerequisites
+Before setting up the project, ensure you have:
+1. Visual Studio 2019 or later  
+2. Microsoft SQL Server (Express or Developer Edition)  
+3. SQL Server Management Studio (SSMS)  
+4. .NET Framework 4.7 or above  
+5. Git  
 
-   
-Open the project in Visual Studio
+---
 
-Go to File → Open → Project/Solution
+### Step 2: Clone the Repository
+Clone the REMS repository from GitHub using the following command:
+```bash
 
-Select the .sln file in the project folder.
+git clone https://github.com/Viraj5132/REMS.git
 
-Configure the database
+Then navigate into the project folder:
 
-Open SQL Server and create a new database named REMS_DB.
+cd REMS
 
-Run the SQL scripts provided in the /Database folder (if available).
+Step 3: Open the Project in Visual Studio
 
-Update the connection string in Web.config:
+Launch Visual Studio.
+
+Go to File → Open → Project/Solution.
+
+Browse to the folder where you cloned the repository.
+
+Select the file REMS.sln and click Open.
+
+Step 4: Configure the SQL Database
+
+Open SQL Server Management Studio (SSMS).
+
+Connect to your SQL Server instance.
+
+Create a new database:
+
+CREATE DATABASE REMS_DB;
+
+
+Locate the SQL script file (if available) in the /Database folder and execute it to create the required tables.
+
+In Visual Studio, open the Web.config file and update your connection string:
 
 <connectionStrings>
-  <add name="REMS_DB" connectionString="Data Source=YOUR_SERVER_NAME;Initial Catalog=REMS_DB;Integrated Security=True" providerName="System.Data.SqlClient"/>
+  <add name="REMS_DB"
+       connectionString="Data Source=YOUR_SERVER_NAME;Initial Catalog=REMS_DB;Integrated Security=True"
+       providerName="System.Data.SqlClient" />
 </connectionStrings>
 
 
-Build and Run
+Replace YOUR_SERVER_NAME with your actual SQL Server instance name.
 
-Click on Start Debugging (F5) in Visual Studio.
+Step 5: Build the Project
 
-The app will launch in your default browser.
+In Visual Studio, go to Build → Build Solution or press Ctrl + Shift + B.
 
-💻 Usage
+Ensure there are no build errors in the Output window.
 
-Admin Login: Access property management and transaction dashboards.
+Step 6: Run the Application
 
-Agent Login: Manage property listings, update records, and view client details.
+Click on the Start Debugging button (green play icon) or press F5.
 
-Client View: Browse and search for properties with filter options.
+The project will start running in your default web browser.
 
-🧩 Example Functionalities
-Feature	Description
-Add Property	Add new property details to the system
-Update Property	Modify details of existing properties
-Search Property	View and filter available properties
-Delete Property	Remove outdated or inactive listings
-Admin Reports	View analytics and system usage data
+Default URL example:
+
+http://localhost:xxxx/
+
+
+You should see the login or homepage of the Real Estate Management System.
+
+Step 7: Login Credentials (Sample)
+
+Use the following sample credentials to test the application (if inserted into the database):
+
+Role	Username	Password	Access
+Admin	admin	admin123	Full Access
+Agent	agent1	agent123	Property Management
+Client	client1	client123	View/Search
+Step 8: Using the Application
+
+Admin: Manage users, monitor analytics, view reports.
+
+Agent: Add or update property listings.
+
+Client: Browse and search properties.
+
+Core Modules
+
+Module	Description
+🏘 Property Management	CRUD operations on properties
+👤 User Management	Add/edit/remove users and assign roles
+📈 Reports	Generate system or property reports
+🔍 Search	Filter properties by price, location, or type
+📦 Transactions	Manage and track property deals
